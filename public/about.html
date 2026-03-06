@@ -1,0 +1,1354 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#faf8f4" />
+    <title>ProtectYours | About Us</title>
+    <meta name="description"
+        content="Learn about ProtectYours. We simplify health, life, Medicare, and personal coverage so you can protect what matters most with clarity and confidence." />
+    <link rel="canonical" href="https://www.protectyours.com/about" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            --font-serif: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
+
+            --radius-sm: 12px;
+            --radius-md: 18px;
+            --radius-lg: 26px;
+
+            --container: 1140px;
+            --gutter: 20px;
+
+            --shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.12);
+            --shadow-line: 0 0 0 1px rgba(10, 12, 18, 0.06);
+
+            --focus: 0 0 0 3px rgba(165, 200, 255, 0.35);
+
+            
+            --bg: #faf8f4;
+            --bg2: #ffffff;
+            --surface: rgba(15, 18, 26, 0.04);
+            --surface2: rgba(15, 18, 26, 0.06);
+            --line: rgba(15, 18, 26, 0.10);
+            --line2: rgba(15, 18, 26, 0.14);
+
+            --text: rgba(10, 12, 18, 0.92);
+            --muted: rgba(10, 12, 18, 0.68);
+            --muted2: rgba(10, 12, 18, 0.55);
+
+            --accent: #8a6a2f;
+            --accent2: #0a67a3;
+            --ok: #0a7b55;
+
+            --chip: rgba(138, 106, 47, 0.10);
+            --chipLine: rgba(138, 106, 47, 0.22);
+
+            --btn: rgba(10, 12, 18, 0.06);
+            --btnLine: rgba(10, 12, 18, 0.12);
+
+            --heroGlow1: radial-gradient(900px 440px at 20% 26%, rgba(138, 106, 47, 0.14), transparent 58%);
+            --heroGlow2: radial-gradient(720px 440px at 80% 20%, rgba(10, 103, 163, 0.10), transparent 54%);
+            --grid:
+                linear-gradient(to right, rgba(10, 12, 18, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(10, 12, 18, 0.06) 1px, transparent 1px);
+
+            --t-fast: 180ms;
+            --t-med: 260ms;
+            --ease: cubic-bezier(.2, .8, .2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-sans);
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color var(--t-med) var(--ease), color var(--t-med) var(--ease);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: none;
+            box-shadow: var(--focus);
+            border-radius: 10px;
+        }
+
+        header,
+        section,
+        footer,
+        .card,
+        .miniCard,
+        .serviceItem,
+        nav a,
+        .btn,
+        .pill,
+        .heroMedia,
+        .quoteStrip {
+            transition:
+                background-color var(--t-med) var(--ease),
+                border-color var(--t-med) var(--ease),
+                color var(--t-med) var(--ease),
+                box-shadow var(--t-med) var(--ease),
+                transform var(--t-fast) var(--ease),
+                opacity var(--t-med) var(--ease);
+        }
+
+        .container {
+            width: min(var(--container), calc(100% - (var(--gutter) * 2)));
+            margin: 0 auto;
+        }
+
+        
+        .brandLogo {
+            width: 180px !important;
+            height: 40px !important;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-position: left center !important;
+            display: block !important;
+            background-image: url("https://assets.cdn.filesafe.space/7PUQJ51iK1NGACL0C7PL/media/6998acee08245eb5330ca41b.png") !important;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: color-mix(in oklab, var(--bg) 80%, transparent);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            gap: 14px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 210px;
+        }
+ .logoImg {
+            height: 40px !important;
+            width: auto;
+            display: block;
+            transition: transform var(--t-med) var(--ease), filter var(--t-med) var(--ease), opacity var(--t-med) var(--ease);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 18px;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 13px;
+            color: var(--muted);
+            padding: 10px 10px;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            display: inline-flex;
+        }
+
+        nav a:hover {
+            border-color: var(--line);
+            background: var(--surface);
+            color: var(--text);
+            transform: translateY(-1px);
+        }
+
+        .navRight {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            min-width: 260px;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 999px;
+            background: var(--btn);
+            border: 1px solid var(--btnLine);
+            color: var(--muted);
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .pill b {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--btnLine);
+            background: var(--btn);
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 28px rgba(10, 12, 18, 0.10);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        .btnPrimary {
+            
+             color: white !important;
+              background:#305074 !important;      
+            border-color: color-mix(in oklab, var(--accent) 40%, var(--line) 60%);
+        }
+
+        .btnGhost {
+            background: transparent;
+            border-color: var(--line);
+            color: var(--muted);
+        }
+
+        
+        .hero {
+            position: relative;
+            padding: 56px 0 28px;
+            overflow: hidden;
+            background:
+                var(--heroGlow1),
+                var(--heroGlow2),
+                linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .heroGrid {
+            position: absolute;
+            inset: 0;
+            opacity: 0.18;
+            background-size: 48px 48px;
+            background-image: var(--grid);
+            mask-image: radial-gradient(450px 280px at 25% 10%, #000 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .heroInner {
+            display: grid;
+            grid-template-columns: 1.08fr 0.92fr;
+            gap: 26px;
+            align-items: start;
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: var(--chip);
+            border: 1px solid var(--chipLine);
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: 0.2px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 99px;
+            background: var(--accent);
+            box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 22%, transparent);
+        }
+
+        h1 {
+            margin: 14px 0 10px;
+            font-family: var(--font-serif);
+            font-size: clamp(34px, 4vw, 54px);
+            line-height: 1.04;
+            letter-spacing: -0.4px;
+        }
+
+        .lead {
+            margin: 0 0 18px;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.55;
+            max-width: 62ch;
+        }
+
+        .heroActions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 18px 0 0;
+        }
+
+        .trustRow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+            color: var(--muted2);
+            font-size: 12px;
+        }
+
+        .trustRow .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            border-radius: 999px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+        }
+
+        .heroMedia {
+            margin-top: 16px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: var(--surface);
+        }
+
+        .heroMedia img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+            transition: transform 520ms var(--ease), filter 520ms var(--ease);
+            will-change: transform;
+        }
+
+        .heroMedia:hover img {
+            transform: scale(1.02);
+            filter: saturate(1.02);
+        }
+
+        .heroMedia .caption {
+            padding: 12px 14px;
+            font-size: 12px;
+            color: var(--muted2);
+            border-top: 1px solid var(--line);
+        }
+
+        
+        .card {
+            background: color-mix(in oklab, var(--bg2) 80%, transparent);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .quoteCard {
+            padding: 18px;
+        }
+
+        .quoteCard h2 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            margin: 0 0 6px;
+            letter-spacing: 0.2px;
+        }
+
+        .quoteCard p {
+            margin: 0 0 14px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        section {
+            padding: 44px 0;
+            background: var(--bg2);
+        }
+
+        section.alt {
+            background: var(--bg);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .sectionHead {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+
+        .sectionHead h3 {
+            margin: 0;
+            font-family: var(--font-serif);
+            font-size: 26px;
+            letter-spacing: -0.2px;
+        }
+
+        .sectionHead p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.55;
+            max-width: 70ch;
+        }
+
+        .grid3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .grid2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .miniCard {
+            padding: 18px;
+            border-radius: var(--radius-md);
+            background: var(--surface);
+            border: 1px solid var(--line);
+            min-width: 0;
+        }
+
+        .miniCard:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 44px rgba(10, 12, 18, 0.10);
+        }
+
+        .miniCard h4 {
+            margin: 0 0 8px;
+            font-size: 14px;
+            letter-spacing: 0.2px;
+        }
+
+        .miniCard p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .imgCard {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .imgCard figure {
+            margin: 0;
+        }
+
+        .imgCard img {
+            width: 100%;
+            height: 310px;
+            object-fit: cover;
+            display: block;
+            transition: transform 520ms var(--ease), filter 520ms var(--ease);
+            will-change: transform;
+        }
+
+        .imgCard:hover img {
+            transform: scale(1.03);
+            filter: saturate(1.03);
+        }
+
+        .imgCard figcaption {
+            padding: 12px 14px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.5;
+            background: color-mix(in oklab, var(--bg2) 84%, transparent);
+        }
+
+        
+        .miniTop {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+
+        .miniIcon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg,
+                    color-mix(in oklab, var(--accent) 35%, transparent),
+                    color-mix(in oklab, var(--accent2) 25%, transparent));
+            border: 1px solid color-mix(in oklab, var(--line) 60%, var(--accent) 20%);
+            flex: 0 0 auto;
+        }
+
+        .miniIcon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--text);
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .serviceList {
+            display: grid;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .serviceItem {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 16px;
+            border-radius: 16px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            min-width: 0;
+        }
+
+        .serviceItem:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 40px rgba(10, 12, 18, 0.10);
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg,
+                    color-mix(in oklab, var(--accent) 35%, transparent),
+                    color-mix(in oklab, var(--accent2) 25%, transparent));
+            border: 1px solid color-mix(in oklab, var(--line) 60%, var(--accent) 20%);
+            flex: 0 0 auto;
+        }
+
+        .icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--text);
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .serviceItem h4 {
+            margin: 0 0 6px;
+            font-size: 14px;
+        }
+
+        .serviceItem p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        
+        .serviceItem h4,
+        .serviceItem p,
+        .quoteStrip span,
+        .lead,
+        footer p,
+        footer a {
+            overflow-wrap: anywhere;
+            word-break: normal;
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            align-items: start;
+            min-width: 0;
+        }
+
+        .quoteStrip {
+            padding: 18px;
+            border-radius: var(--radius-md);
+            background:
+                linear-gradient(135deg,
+                    color-mix(in oklab, var(--accent) 16%, transparent),
+                    color-mix(in oklab, var(--accent2) 10%, transparent));
+            border: 1px solid var(--line);
+        }
+
+        .quoteStrip b {
+            font-family: var(--font-serif);
+            font-size: 16px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .quoteStrip span {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .ctaCard {
+            padding: 18px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--line);
+            background: color-mix(in oklab, var(--bg2) 76%, transparent);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .ctaRow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .ctaRow h3 {
+            margin: 0;
+            font-family: var(--font-serif);
+            font-size: 22px;
+            letter-spacing: -0.2px;
+        }
+
+        .ctaRow p {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
+            max-width: 70ch;
+        }
+
+        
+        footer {
+            padding: 30px 0;
+            background: var(--bg);
+            border-top: 1px solid var(--line);
+        }
+
+        .footerGrid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 18px;
+            align-items: start;
+        }
+
+        footer h5 {
+            margin: 0 0 10px;
+            font-size: 13px;
+            letter-spacing: 0.2px;
+            color: var(--text);
+        }
+
+        footer a,
+        footer p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        footer a:hover {
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .footNote {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+            color: var(--muted2);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        
+       .navToggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            border: 1px solid var(--line) !important;
+            background: var(--surface) !important;
+            cursor: pointer !important;
+            padding: 0 !important;
+        }
+
+        .navToggle svg {
+            width: 22px !important;
+            height: 22px !important;
+            stroke: var(--text) !important;
+            stroke-width: 2 !important;
+            fill: none !important;
+            stroke-linecap: round !important;
+            stroke-linejoin: round !important;
+            display: block !important;
+        }
+
+        
+        .mobileNav {
+            display: none;
+            border-top: 1px solid var(--line);
+            padding: 12px 0 14px;
+        }
+
+        .mobileNav ul {
+            display: grid;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 8px;
+        }
+
+        .mobileNav a {
+            display: block;
+            padding: 12px 12px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: var(--surface);
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        
+        header[data-menu-open="true"] .mobileNav {
+            display: block;
+        }
+
+        
+        @media (max-width: 980px) {
+             :root {
+                --gutter: 16px;
+            }
+
+            
+            .brand {
+                min-width: 0;
+            }
+
+            .brandLogo {
+                width: 150px !important;
+                height: 36px !important;
+            }
+
+            
+            nav[aria-label="Site"] ul {
+                display: none;
+            }
+
+            
+            .navToggle {
+                display: inline-flex;
+            }
+
+            
+            .navRight {
+                min-width: 0;
+                gap: 8px;
+            }
+            .pill {
+                display: none;
+            }
+
+            
+            .navRight .btn.btnPrimary {
+                padding: 11px 12px;
+            }
+
+            .heroInner {
+                grid-template-columns: 1fr;
+            }
+
+            .heroMedia img {
+                height: 220px;
+            }
+
+            .grid3,
+            .grid2,
+            .split,
+            .footerGrid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .nav {
+                gap: 10px;
+            }
+
+            h1 {
+                font-size: clamp(30px, 8vw, 42px);
+            }
+
+            .hero {
+                padding: 44px 0 22px;
+            }
+
+            .heroActions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .heroActions .btn {
+                width: 100%;
+            }
+
+            .ctaRow {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .ctaRow>div:last-child {
+                width: 100%;
+            }
+
+            .ctaRow>div:last-child .btn {
+                width: 100%;
+            }
+
+            .miniTop {
+                gap: 12px;
+            }
+
+            .icon,
+            .miniIcon {
+                width: 54px;
+                height: 54px;
+                border-radius: 16px;
+            }
+
+            .serviceItem {
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="siteHeader" data-menu-open="false">
+        <div class="container">
+            <div class="nav" aria-label="Primary">
+                <a class="brand" href="https://www.protectyours.com/" aria-label="ProtectYours Home">
+                    <div class="brandLogo" aria-hidden="true"></div>
+                </a>
+
+                <nav aria-label="Site">
+                    <ul>
+                        <li><a href="/home-page/">Home</a></li>
+                        <li><a href="/home-page/#services">Services</a></li>
+                        <li><a href="/home-page/#coverage">Coverage</a></li>
+                        <li><a href="/home-page/#how">How It Works</a></li>
+                        <li><a href="/home-page/#testimonials">Testimonials</a></li>
+                        <li><a href="/about-us/" aria-current="page">About Us</a></li>
+                    </ul>
+                </nav>
+
+                <div class="navRight">
+                    <div class="pill" aria-label="Call us">
+                        <span>Call</span> <b>(813) 123-4567</b>
+                    </div>
+
+                    <a class="btn btnPrimary" href="#contact">Get a Quote</a>
+
+                    
+                    <button class="navToggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <line x1="4" y1="7" x2="20" y2="7"></line>
+                            <line x1="4" y1="12" x2="20" y2="12"></line>
+                            <line x1="4" y1="17" x2="20" y2="17"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            
+            <nav class="mobileNav" id="mobileNav" aria-label="Mobile">
+                <ul>
+                    <li><a href="/home-page/">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#coverage">Coverage</a></li>
+                    <li><a href="#how">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="/about-us/" aria-current="page">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+        <section class="hero" id="top">
+            <div class="heroGrid" aria-hidden="true"></div>
+
+            <div class="container">
+                <div class="heroInner">
+                    <div>
+                        <div class="kicker">
+                            <span class="dot" aria-hidden="true"></span>
+                            About ProtectYours
+                        </div>
+
+                        <h1>Protecting What Matters Most</h1>
+                        <p class="lead">
+                            We help people protect their families, their health, their financial security, and the
+                            things they've
+                            worked hard to build.
+                            Insurance can feel overwhelming. Our mission is to simplify coverage, provide transparent
+                            options, and
+                            guide you through what can otherwise be a confusing decision process.
+                        </p>
+
+                        <div class="heroActions" role="group" aria-label="Primary actions">
+                            <a class="btn btnPrimary" href="#quote">Get Your Free Quote</a>
+                            <a class="btn btnGhost" href="#why">Why Work With Us</a>
+                        </div>
+
+                        <div class="trustRow" aria-label="Trust points">
+                            <span class="badge">Licensed guidance</span>
+                            <span class="badge">No cost to compare</span>
+                            <span class="badge">Transparent options</span>
+                            <span class="badge">Multi-carrier access</span>
+                        </div>
+
+                        <div class="heroMedia" aria-label="About hero image">
+                            <img src="https://q64.9a3.myftpupload.com/wp-content/uploads/2026/01/varma-about-hero.webp"
+                                alt="ProtectYours advisors supporting families with coverage decisions" loading="lazy"
+                                decoding="async" />
+                            <div class="caption">Guidance that feels clear, calm, and personal.</div>
+                        </div>
+                    </div>
+
+                    
+                    <aside class="card quoteCard" id="mission" aria-label="Our mission">
+                        <h2>Our Mission</h2>
+                        <p>
+                            We simplify insurance so you can choose coverage with confidence. That means clear
+                            explanations, honest
+                            comparisons, and guidance built around your real life, not generic scripts.
+                        </p>
+
+                        <div class="serviceList" aria-label="Mission pillars">
+                            <div class="serviceItem">
+                                <div class="icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M12 3l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V7l7-4z"></path>
+                                        <path d="M9 12l2 2 4-5"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4>Clarity-first guidance</h4>
+                                    <p>We translate benefits, deductibles, and tradeoffs into simple decisions you can
+                                        feel good about.</p>
+                                </div>
+                            </div>
+
+                            <div class="serviceItem">
+                                <div class="icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+                                        <path d="M7 9h10"></path>
+                                        <path d="M7 12h7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4>Transparent options</h4>
+                                    <p>Compare real pricing and real benefits across carriers, without hidden fees or
+                                        pressure tactics.</p>
+                                </div>
+                            </div>
+
+                            <div class="serviceItem">
+                                <div class="icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24">
+                                        <circle cx="12" cy="8" r="4"></circle>
+                                        <path d="M4 21a8 8 0 0 1 16 0"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4>Personal, licensed support</h4>
+                                    <p>We take time to understand your situation and guide you through next steps at
+                                        your pace.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="alt" id="why">
+            <div class="container">
+                <div class="sectionHead">
+                    <div>
+                        <h3>Why Work With Us?</h3>
+                        <p>Insurance choices can be complex. We make the process feel organized, approachable, and
+                            genuinely helpful.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid3" role="list">
+                    <div class="miniCard" role="listitem">
+                        <div class="miniTop">
+                            <span class="miniIcon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M4 7h16"></path>
+                                    <path d="M4 12h10"></path>
+                                    <path d="M4 17h16"></path>
+                                    <path d="M16 12l2 2 4-4"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h4>We Make Coverage Simple</h4>
+                            </div>
+                        </div>
+                        <p>Our streamlined approach puts your best options in one place so you can compare and decide
+                            with
+                            confidence.</p>
+                    </div>
+
+                    <div class="miniCard" role="listitem">
+                        <div class="miniTop">
+                            <span class="miniIcon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 21s-7-4.6-9.2-8.6C1.2 9 3 6 6.4 6c1.9 0 3.1 1 3.6 1.7.5-.7 1.7-1.7 3.6-1.7C17 6 18.8 9 21.2 12.4 19 16.4 12 21 12 21z">
+                                    </path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h4>You'll Get Personal Guidance</h4>
+                            </div>
+                        </div>
+                        <p>Licensed advisors take time to understand your situation, answer questions, and guide you
+                            without
+                            pressure.</p>
+                    </div>
+
+                    <div class="miniCard" role="listitem">
+                        <div class="miniTop">
+                            <span class="miniIcon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="4" y="7" width="16" height="13" rx="2"></rect>
+                                    <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    <path d="M8 12h8"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h4>No Cost to Compare</h4>
+                            </div>
+                        </div>
+                        <p>Getting quotes with us is free. You'll see transparent pricing from trusted carriers with no
+                            obligations.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="height:14px"></div>
+
+                <div class="grid3" aria-label="About imagery">
+                    <div class="miniCard imgCard">
+                        <figure>
+                            <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1600&q=80"
+                                alt="Advisor talking with a client in a calm consultation" loading="lazy"
+                                decoding="async" />
+                            <figcaption>Human guidance when decisions feel complex.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="miniCard imgCard">
+                        <figure>
+                            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1600&q=80"
+                                alt="Family together outdoors representing protection" loading="lazy"
+                                decoding="async" />
+                            <figcaption>Coverage built around family, health, and future stability.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="miniCard imgCard">
+                        <figure>
+                            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1600&q=80"
+                                alt="Planning desk with documents representing financial clarity" loading="lazy"
+                                decoding="async" />
+                            <figcaption>Transparent comparisons that support confident choices.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="offer">
+            <div class="container">
+                <div class="sectionHead">
+                    <div>
+                        <h3>What We Offer</h3>
+                        <p>
+                            From life insurance to Medicare and health coverage, we help you find policies that protect
+                            what matters
+                            most.
+                            We represent multiple trusted carriers so you receive competitive pricing and a full
+                            comparison of choices.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="split">
+                    <div class="miniCard imgCard" aria-label="Family image">
+                        <figure>
+                            <img src="https://q64.9a3.myftpupload.com/wp-content/uploads/2026/01/Family-Park.jpg"
+                                alt="Family in a park representing protection and peace of mind" loading="lazy"
+                                decoding="async" />
+                            <figcaption>Protection that supports the life you're building.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="serviceList" aria-label="Offerings list">
+                        <div class="serviceItem">
+                            <div class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 3l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V7l7-4z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Term and permanent life insurance</h4>
+                                <p>Affordable coverage or lifelong protection designed around your goals and budget.</p>
+                            </div>
+                        </div>
+
+                        <div class="serviceItem">
+                            <div class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M10 14h4"></path>
+                                    <path d="M12 12v4"></path>
+                                    <path d="M20 12a8 8 0 1 1-16 0a8 8 0 0 1 16 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Medicare Advantage and Medicare Supplement</h4>
+                                <p>Guidance to compare networks, benefits, and out-of-pocket costs in a clear way.</p>
+                            </div>
+                        </div>
+
+                        <div class="serviceItem">
+                            <div class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 21s-7-4.6-9.2-8.6C1.2 9 3 6 6.4 6c1.9 0 3.1 1 3.6 1.7.5-.7 1.7-1.7 3.6-1.7C17 6 18.8 9 21.2 12.4 19 16.4 12 21 12 21z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Health insurance tailored to your needs</h4>
+                                <p>Plans aligned to your doctors, prescriptions, budget, and preferred level of
+                                    flexibility.</p>
+                            </div>
+                        </div>
+
+                        <div class="serviceItem">
+                            <div class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="5" y="11" width="14" height="10" rx="2"></rect>
+                                    <path d="M8 11V8a4 4 0 1 1 8 0v3"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Additional personal coverage options</h4>
+                                <p>Supplemental coverage choices that help fill gaps and strengthen protection.</p>
+                            </div>
+                        </div>
+
+                        <div class="quoteStrip" style="margin-top: 6px;">
+                            <b>Multi-carrier comparisons, one clean experience.</b>
+                            <span>We bring options together so you can make a confident decision without hunting across
+                                multiple
+                                websites.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="height:14px"></div>
+
+                <div class="ctaCard" id="quote" aria-label="Get a free quote call to action">
+                    <div class="ctaRow">
+                        <div>
+                            <h3>Get your free quote</h3>
+                            <p>Compare options with a licensed advisor. No cost to compare, no pressure to enroll, and
+                                no hidden fees.
+                            </p>
+                        </div>
+                        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                            <a class="btn btnPrimary" href="/home-page/#contact">GET YOUR FREE QUOTE</a>
+                            <a class="btn btnGhost" href="/home-page/#coverage">Explore Coverage</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footerGrid">
+                    <div>
+                        <div class="brand" style="margin-bottom: 8px;">
+                            <img class="logoImg logoLight"
+                                src="https://assets.cdn.filesafe.space/7PUQJ51iK1NGACL0C7PL/media/6998acee08245eb5330ca41b.png"
+                                alt="ProtectYours Logo" />
+                        </div>
+                        <p>Premium health and life insurance guidance designed to protect your present and strengthen
+                            your future.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5>Explore</h5>
+                        
+                        <p><a href="/home-page/#services">Services</a></p>
+                        <p><a href="/home-page/#coverage">Coverage</a></p>
+                        <p><a href="/home-page/#how">How It Works</a></p>
+                        <p><a href="/home-page/#contact">Get a Quote</a></p>
+                        <p><a href="/about-us/">About Us</a></p>
+                    </div>
+
+                    <div>
+                        <h5>Contact</h5>
+                        <p>Phone: (813) 123-4567</p>
+                        <p>Email: support@protectyours.com</p>
+                        <p>Office: Tampa, FL</p>
+                    </div>
+                </div>
+
+                <div class="footNote">
+                    © <span id="year"></span> ProtectYours. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var year = document.getElementById("year");
+            if (year) year.textContent = String(new Date().getFullYear());
+
+            root.setAttribute("data-theme", "light");
+            try { localStorage.removeItem("py_theme"); } catch (e) { }
+
+            var header = document.getElementById("siteHeader");
+            var toggle = document.getElementById("navToggle");
+            var mobileNav = document.getElementById("mobileNav");
+
+            if (!header || !toggle || !mobileNav) return;
+
+            function setOpen(isOpen) {
+                header.setAttribute("data-menu-open", isOpen ? "true" : "false");
+                toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+                if (!isOpen) return;
+                if (window.matchMedia && window.matchMedia("(max-width: 980px)").matches) {
+                    document.body.style.overflow = "hidden";
+                }
+            }
+
+            function closeMenu() {
+                header.setAttribute("data-menu-open", "false");
+                toggle.setAttribute("aria-expanded", "false");
+                toggle.setAttribute("aria-label", "Open menu");
+                document.body.style.overflow = "";
+            }
+
+            toggle.addEventListener("click", function () {
+                var open = header.getAttribute("data-menu-open") === "true";
+                if (open) closeMenu();
+                else setOpen(true);
+            });
+
+            mobileNav.addEventListener("click", function (e) {
+                var target = e.target;
+                if (target && target.tagName === "A") closeMenu();
+            });
+
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") closeMenu();
+            });
+
+            window.addEventListener("resize", function () {
+                if (window.innerWidth > 980) closeMenu();
+            });
+        })();
+    </script>
+</body>
+
+</html>

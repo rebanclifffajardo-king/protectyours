@@ -1,0 +1,1816 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0B0D12" />
+    <title>Insurance Elevated | OTP Form</title>
+    <meta name="description" content="Secure multi-step quote form with one-time code verification." />
+    <link rel="canonical" href="https://www.insuranceelevated.com/ie-otp-form" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            --font-serif: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
+
+            --radius-sm: 12px;
+            --radius-md: 18px;
+            --radius-lg: 26px;
+
+            --container: 1140px;
+            --gutter: 20px;
+
+            --shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.22);
+            --shadow-line: 0 0 0 1px rgba(255, 255, 255, 0.06);
+
+            --focus: 0 0 0 3px rgba(165, 200, 255, 0.35);
+        }
+
+        html[data-theme="dark"] {
+            --bg: #0b0d12;
+            --bg2: #0f131b;
+            --surface: rgba(255, 255, 255, 0.06);
+            --surface2: rgba(255, 255, 255, 0.08);
+            --line: rgba(255, 255, 255, 0.10);
+            --line2: rgba(255, 255, 255, 0.14);
+
+            --text: rgba(255, 255, 255, 0.92);
+            --muted: rgba(255, 255, 255, 0.68);
+            --muted2: rgba(255, 255, 255, 0.52);
+
+            --accent: #c7a36a;
+            --accent2: #8fd3ff;
+            --ok: #82f3c1;
+
+            --chip: rgba(199, 163, 106, 0.14);
+            --chipLine: rgba(199, 163, 106, 0.28);
+
+            --btn: rgba(255, 255, 255, 0.10);
+            --btnLine: rgba(255, 255, 255, 0.16);
+
+            --heroGlow1: radial-gradient(800px 420px at 18% 22%, rgba(199, 163, 106, 0.18), transparent 55%);
+            --heroGlow2: radial-gradient(700px 420px at 78% 18%, rgba(143, 211, 255, 0.14), transparent 52%);
+            --grid: linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+        }
+
+        html[data-theme="light"] {
+            --bg: #faf8f4;
+            --bg2: #ffffff;
+            --surface: rgba(15, 18, 26, 0.04);
+            --surface2: rgba(15, 18, 26, 0.06);
+            --line: rgba(15, 18, 26, 0.10);
+            --line2: rgba(15, 18, 26, 0.14);
+
+            --text: rgba(10, 12, 18, 0.92);
+            --muted: rgba(10, 12, 18, 0.68);
+            --muted2: rgba(10, 12, 18, 0.55);
+
+            --accent: #8a6a2f;
+            --accent2: #0a67a3;
+            --ok: #0a7b55;
+
+            --chip: rgba(138, 106, 47, 0.10);
+            --chipLine: rgba(138, 106, 47, 0.22);
+
+            --btn: rgba(10, 12, 18, 0.06);
+            --btnLine: rgba(10, 12, 18, 0.12);
+
+            --heroGlow1: radial-gradient(900px 440px at 20% 26%, rgba(138, 106, 47, 0.14), transparent 58%);
+            --heroGlow2: radial-gradient(720px 440px at 80% 20%, rgba(10, 103, 163, 0.10), transparent 54%);
+            --grid: linear-gradient(to right, rgba(10, 12, 18, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(10, 12, 18, 0.06) 1px, transparent 1px);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-sans);
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: none;
+            box-shadow: var(--focus);
+            border-radius: 10px;
+        }
+
+        .container {
+            width: min(var(--container), calc(100% - (var(--gutter) * 2)));
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: color-mix(in oklab, var(--bg) 80%, transparent);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            gap: 14px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 210px;
+        }
+
+        .logoImg {
+            height: 40px !important;
+            width: auto;
+            display: block;
+        }
+
+        html[data-theme="dark"] .logoLight {
+            display: none;
+        }
+
+        html[data-theme="light"] .logoDark {
+            display: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 18px;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 13px;
+            color: var(--muted);
+            padding: 10px 10px;
+            border-radius: 12px;
+            border: 1px solid transparent;
+        }
+
+        nav a:hover {
+            border-color: var(--line);
+            background: var(--surface);
+            color: var(--text);
+        }
+
+        .navRight {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            min-width: 260px;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 999px;
+            background: var(--btn);
+            border: 1px solid var(--btnLine);
+            color: var(--muted);
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .pill b {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--btnLine);
+            background: var(--btn);
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btnPrimary {
+      
+             color: white !important;
+              background:#305074 !important;      
+            border-color: color-mix(in oklab, var(--accent) 40%, var(--line) 60%);
+        }
+
+        html[data-theme="light"] .btnPrimary {
+            color: #0a0c12;
+        }
+
+        .btnGhost {
+            background: transparent;
+            border-color: var(--line);
+            color: var(--muted);
+        }
+
+        .toggle {
+            padding: 12px 14px;
+        }
+
+        .iconToggle {
+            width: 42px;
+            height: 42px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        html[data-theme="dark"] #sunIcon {
+            display: none;
+        }
+
+        html[data-theme="light"] #moonIcon {
+            display: none;
+        }
+
+        .hero {
+            position: relative;
+            padding: 56px 0 28px;
+            overflow: hidden;
+            background:
+                var(--heroGlow1),
+                var(--heroGlow2),
+                linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .heroGrid {
+            position: absolute;
+            inset: 0;
+            opacity: 0.18;
+            background-size: 48px 48px;
+            background-image: var(--grid);
+            mask-image: radial-gradient(450px 280px at 25% 10%, #000 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .heroInner {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 26px;
+            align-items: start;
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: var(--chip);
+            border: 1px solid var(--chipLine);
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: 0.2px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 99px;
+            background: var(--accent);
+            box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 22%, transparent);
+        }
+
+        h1 {
+            margin: 14px 0 10px;
+            font-family: var(--font-serif);
+            font-size: clamp(34px, 4vw, 54px);
+            line-height: 1.04;
+            letter-spacing: -0.4px;
+        }
+
+        .lead {
+            margin: 0 0 18px;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.55;
+            max-width: 62ch;
+        }
+
+        .trustRow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+            color: var(--muted2);
+            font-size: 12px;
+        }
+
+        .trustRow .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            border-radius: 999px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+        }
+
+        .heroMedia {
+            margin-top: 16px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: var(--surface);
+        }
+
+        .heroMedia img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .heroMedia .caption {
+            padding: 12px 14px;
+            font-size: 12px;
+            color: var(--muted2);
+            border-top: 1px solid var(--line);
+        }
+
+        .card {
+            background: color-mix(in oklab, var(--bg2) 80%, transparent);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .quoteCard {
+            padding: 18px;
+        }
+
+        .quoteCard h2 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            margin: 0 0 6px;
+            letter-spacing: 0.2px;
+        }
+
+        .quoteCard p {
+            margin: 0 0 14px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        label {
+            font-size: 12px;
+            color: var(--muted2);
+            display: block;
+            margin: 0 0 6px;
+        }
+
+        .field {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 12px 12px;
+            color: var(--text);
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .field::placeholder {
+            color: color-mix(in oklab, var(--muted2) 78%, transparent);
+        }
+
+        .fineprint {
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--muted2);
+            line-height: 1.45;
+        }
+
+        section {
+            padding: 44px 0;
+            background: var(--bg2);
+        }
+
+        section.alt {
+            background: var(--bg);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .sectionHead {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+
+        .sectionHead h3 {
+            margin: 0;
+            font-family: var(--font-serif);
+            font-size: 26px;
+            letter-spacing: -0.2px;
+        }
+
+        .sectionHead p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .grid3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .miniCard {
+            padding: 18px;
+            border-radius: var(--radius-md);
+            background: var(--surface);
+            border: 1px solid var(--line);
+        }
+
+        .miniTop {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+
+        .miniIcon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg,
+                    color-mix(in oklab, var(--accent) 35%, transparent),
+                    color-mix(in oklab, var(--accent2) 25%, transparent));
+            border: 1px solid color-mix(in oklab, var(--line) 60%, var(--accent) 20%);
+            flex: 0 0 auto;
+        }
+
+        .miniIcon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--text);
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .quoteStrip {
+            padding: 18px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg,
+                    color-mix(in oklab, var(--accent) 16%, transparent),
+                    color-mix(in oklab, var(--accent2) 10%, transparent));
+            border: 1px solid var(--line);
+        }
+
+        .quoteStrip b {
+            font-family: var(--font-serif);
+            font-size: 16px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .quoteStrip span {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        footer {
+            padding: 30px 0;
+            background: var(--bg);
+            border-top: 1px solid var(--line);
+        }
+
+        .footerGrid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 18px;
+            align-items: start;
+        }
+
+        footer h5 {
+            margin: 0 0 10px;
+            font-size: 13px;
+            letter-spacing: 0.2px;
+            color: var(--text);
+        }
+
+        footer a,
+        footer p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .footNote {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+            color: var(--muted2);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 980px) {
+            nav ul {
+                display: none;
+            }
+
+            .heroInner {
+                grid-template-columns: 1fr;
+            }
+
+            .navRight {
+                min-width: unset;
+            }
+
+            .grid3 {
+                grid-template-columns: 1fr;
+            }
+
+            .footerGrid {
+                grid-template-columns: 1fr;
+            }
+
+            .heroMedia img {
+                height: 220px;
+            }
+        }
+
+        
+        .quoteCard h3.stepTitle {
+            margin: 10px 0 6px;
+            font-family: var(--font-serif);
+            font-size: 18px;
+            letter-spacing: 0.2px;
+        }
+
+        .stepHint {
+            margin: 0 0 12px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .stepper {
+            margin: 10px 0 12px;
+            padding: 12px;
+            border-radius: 16px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+        }
+
+        .stepDots {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .stepDot {
+            height: 6px;
+            border-radius: 99px;
+            background: color-mix(in oklab, var(--muted2) 30%, transparent);
+            border: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
+        }
+
+        .stepDot.isActive {
+            background: linear-gradient(90deg,
+                    color-mix(in oklab, var(--accent) 85%, transparent),
+                    color-mix(in oklab, var(--accent2) 55%, transparent));
+            border-color: color-mix(in oklab, var(--accent) 35%, var(--line) 65%);
+        }
+
+        .stepDot.isDone {
+            background: color-mix(in oklab, var(--ok) 60%, transparent);
+            border-color: color-mix(in oklab, var(--ok) 35%, var(--line) 65%);
+        }
+
+        .stepLabelRow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            color: var(--muted2);
+            font-size: 12px;
+        }
+
+        .stepPct {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .choiceGrid {
+            display: grid;
+            gap: 10px;
+        }
+
+        .choiceCard {
+            position: relative;
+            display: block;
+            padding: 14px 14px;
+            border-radius: 16px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            cursor: pointer;
+        }
+
+        .choiceCard input {
+            position: absolute;
+            inset: 14px auto auto 14px;
+            width: 18px;
+            height: 18px;
+            accent-color: color-mix(in oklab, var(--accent2) 70%, var(--accent) 30%);
+        }
+
+        .choiceTitle {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-left: 30px;
+        }
+
+        .choiceDesc {
+            display: block;
+            margin-left: 30px;
+            margin-top: 4px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .choiceCard:has(input:checked) {
+            border-color: color-mix(in oklab, var(--accent) 36%, var(--line) 64%);
+            background: linear-gradient(135deg,
+                    color-mix(in oklab, var(--accent) 12%, transparent),
+                    color-mix(in oklab, var(--accent2) 10%, transparent));
+        }
+
+        .pillChoices {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pillPick {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 999px;
+            background: var(--btn);
+            border: 1px solid var(--btnLine);
+            color: var(--muted);
+            cursor: pointer;
+            user-select: none;
+            font-size: 13px;
+        }
+
+        .pillPick input {
+            width: 16px;
+            height: 16px;
+            accent-color: color-mix(in oklab, var(--accent2) 70%, var(--accent) 30%);
+        }
+
+        .pillPick:has(input:checked) {
+            color: var(--text);
+            border-color: color-mix(in oklab, var(--accent) 34%, var(--line) 66%);
+            background: color-mix(in oklab, var(--chip) 85%, transparent);
+        }
+
+        .row2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .row3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        @media (max-width: 980px) {
+            .row2 {
+                grid-template-columns: 1fr;
+            }
+
+            .row3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .budgetCard {
+            padding: 14px;
+            border-radius: 16px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+        }
+
+        .budgetTop {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .budgetLabel {
+            color: var(--muted2);
+            font-size: 12px;
+        }
+
+        .budgetValue {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            letter-spacing: -0.2px;
+        }
+
+        .range {
+            width: 100%;
+        }
+
+        .budgetMarks {
+            display: flex;
+            justify-content: space-between;
+            color: var(--muted2);
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        .stepActions {
+            display: flex;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .stepActions .btn {
+            flex: 1;
+        }
+
+        .otpRow {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            margin: 8px 0 6px;
+        }
+
+        .otpBox {
+            width: 100%;
+            max-width: 62px;
+            text-align: center;
+            font-size: 18px;
+            padding: 14px 12px;
+            border-radius: 16px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            color: var(--text);
+            outline: none;
+        }
+
+        .otpLinks {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .otpLinks .btn {
+            flex: 1;
+        }
+
+        .errorText {
+            color: color-mix(in oklab, #ff4d6d 80%, var(--text) 0%);
+        }
+    </style>
+</head>
+
+<body>
+    
+    <header>
+        <div class="container">
+            <div class="nav" aria-label="Primary">
+                <a class="brand" href="https://www.protectyours.com/" aria-label="ProtectYours Home">
+                    <img class="logoImg logoDark"
+                        src="https://assets.cdn.filesafe.space/7PUQJ51iK1NGACL0C7PL/media/6998acee3a2afdd874628a8e.png"
+                        alt="ProtectYours Logo" />
+                    <img class="logoImg logoLight"
+                        src="https://assets.cdn.filesafe.space/7PUQJ51iK1NGACL0C7PL/media/6998acee08245eb5330ca41b.png"
+                        alt="ProtectYours Logo" />
+                    <div></div>
+                </a>
+
+                <nav aria-label="Site">
+                    <ul>
+                        <li><a href="/home-page/">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#coverage">Coverage</a></li>
+                        <li><a href="#how">How It Works</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </nav>
+
+                <div class="navRight">
+                    <div class="pill" aria-label="Call us">
+                        <span>Call</span> <b>(813) 123-4567</b>
+                    </div>
+                    
+                    <a class="btn btnPrimary" href="index.html">Get a Quote</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="top">
+            <div class="heroGrid" aria-hidden="true"></div>
+
+            <div class="container">
+                <div class="heroInner">
+                    <div>
+                        <div class="kicker">
+                            <span class="dot" aria-hidden="true"></span>
+                            Secure, guided intake with one-time code verification
+                        </div>
+
+                        <h1>Get matched with the right coverage.</h1>
+                        <p class="lead">
+                            Answer a few quick questions about your goals, budget, and profile. Then verify your phone
+                            number with a
+                            one-time code to keep your information secure.
+                        </p>
+
+                        <div class="trustRow" aria-label="Trust points">
+                            <span class="badge">No broker fees</span>
+                            <span class="badge">Privacy-forward</span>
+                            <span class="badge">State-specific agents</span>
+                            <span class="badge">Fast follow-up</span>
+                        </div>
+
+                        <div class="heroMedia" aria-label="Insurance hero image">
+                            <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1600&q=80"
+                                alt="Advisor helping a client with insurance options" loading="lazy" decoding="async" />
+                            <div class="caption">A simple flow that respects privacy and reduces friction.</div>
+                        </div>
+                    </div>
+
+                    <aside class="card quoteCard" id="otpFormCard" aria-label="OTP intake form">
+                        <h2>Start your quote</h2>
+                        <p id="subhead">Step <span id="stepNum">1</span> of <span id="stepTotal">7</span></p>
+
+                        <div class="stepper" aria-label="Progress">
+                            <div class="stepDots" id="stepDots"></div>
+                            <div class="stepLabelRow">
+                                <span class="stepLabel" id="stepLabel"></span>
+                                <span class="stepPct" id="stepPct"></span>
+                            </div>
+                        </div>
+
+                        <form id="otpForm" novalidate>
+                            <div class="step" data-step="goal">
+                                <h3 class="stepTitle">What is your goal?</h3>
+                                <p class="stepHint">Select all that apply.</p>
+
+                                <div class="choiceGrid">
+                                    <label class="choiceCard">
+                                        <input type="checkbox" name="goal" value="Protect my loved ones" />
+                                        <span class="choiceTitle">Protect my loved ones</span>
+                                        <span class="choiceDesc">Financial stability for everyday needs and long-term
+                                            plans.</span>
+                                    </label>
+
+                                    <label class="choiceCard">
+                                        <input type="checkbox" name="goal" value="Grow my wealth tax-free" />
+                                        <span class="choiceTitle">Grow my wealth tax-free</span>
+                                        <span class="choiceDesc">Accumulate cash value that grows tax-free for future
+                                            goals.</span>
+                                    </label>
+
+                                    <label class="choiceCard">
+                                        <input type="checkbox" name="goal" value="Take care of final expenses" />
+                                        <span class="choiceTitle">Take care of final expenses</span>
+                                        <span class="choiceDesc">Help cover funeral and burial costs with peace of
+                                            mind.</span>
+                                    </label>
+
+                                    <label class="choiceCard">
+                                        <input type="checkbox" name="goal" value="Protect my mortgage and assets" />
+                                        <span class="choiceTitle">Protect my mortgage and assets</span>
+                                        <span class="choiceDesc">Help pay off mortgage, settle debts, and protect
+                                            assets.</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="step" data-step="beneficiaries" hidden>
+                                <h3 class="stepTitle">Who are your beneficiaries?</h3>
+                                <p class="stepHint">Select at least one.</p>
+
+                                <div class="pillChoices">
+                                    <label class="pillPick"><input type="checkbox" name="beneficiaries"
+                                            value="My Spouse" /><span>My
+                                            Spouse</span></label>
+                                    <label class="pillPick"><input type="checkbox" name="beneficiaries"
+                                            value="My Children" /><span>My
+                                            Children</span></label>
+                                    <label class="pillPick"><input type="checkbox" name="beneficiaries"
+                                            value="More Than One Person" /><span>More
+                                            Than One Person</span></label>
+                                    <label class="pillPick"><input type="checkbox" name="beneficiaries"
+                                            value="Other" /><span>Other</span></label>
+                                </div>
+
+                                <div class="row2" style="margin-top:10px;">
+                                    <div id="benefOtherWrap" hidden>
+                                        <label for="benefOther">If Other, specify</label>
+                                        <input class="field" id="benefOther" name="benefOther" type="text"
+                                            placeholder="Type beneficiary" />
+                                    </div>
+                                    <div></div>
+                                </div>
+                            </div>
+
+                            <div class="step" data-step="budget" hidden>
+                                <h3 class="stepTitle">What is your monthly budget?</h3>
+                                <p class="stepHint">Pick an amount that feels manageable, even if something unexpected
+                                    happens.</p>
+
+                                <div class="budgetCard">
+                                    <div class="budgetTop">
+                                        <span class="budgetLabel">Amount</span>
+                                        <span class="budgetValue" id="budgetValue">$0</span>
+                                    </div>
+                                    <input class="range" id="budget" name="budget" type="range" min="0" max="1000"
+                                        step="25" value="0" />
+                                    <div class="budgetMarks">
+                                        <span>$0</span><span>$1,000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step" data-step="dob" hidden>
+                                <h3 class="stepTitle">What is your date of birth?</h3>
+                                <p class="stepHint">Enter your date of birth.</p>
+
+                                <div class="row3">
+                                    <div>
+                                        <label for="dobMonth">Month</label>
+                                        <select class="field" id="dobMonth" name="dobMonth" required>
+                                            <option value="" selected disabled>Month</option>
+                                            <option value="1">January</option>
+                                            <option value="2">February</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">August</option>
+                                            <option value="9">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="dobDay">Day</label>
+                                        <input class="field" id="dobDay" name="dobDay" type="number" min="1" max="31"
+                                            placeholder="Day" required />
+                                    </div>
+                                    <div>
+                                        <label for="dobYear">Year</label>
+                                        <input class="field" id="dobYear" name="dobYear" type="number" min="1900"
+                                            max="2100" placeholder="Year" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step" data-step="conditions" hidden>
+                                <h3 class="stepTitle">Pre-existing conditions</h3>
+                                <p class="stepHint">Any pre-existing conditions that need to be covered? Select all that
+                                    apply.</p>
+
+                                <div class="pillChoices">
+                                    <label class="pillPick"><input type="checkbox" name="conditions"
+                                            value="Diabetes" /><span>Diabetes</span></label>
+                                    <label class="pillPick"><input type="checkbox" name="conditions"
+                                            value="High Blood Pressure" /><span>High
+                                            Blood Pressure</span></label>
+                                    <label class="pillPick"><input type="checkbox" name="conditions"
+                                            value="Mental Health" /><span>Mental
+                                            Health</span></label>
+                                    <label class="pillPick"><input type="checkbox" name="conditions"
+                                            value="Asthma" /><span>Asthma</span></label>
+                                    <label class="pillPick"><input type="checkbox" name="conditions"
+                                            value="Other" /><span>Other</span></label>
+                                    <label class="pillPick"><input type="checkbox" name="conditions"
+                                            value="No Pre-Existing Conditions" /><span>No
+                                            Pre-Existing Conditions</span></label>
+                                </div>
+
+                                <div class="row2" style="margin-top:10px;">
+                                    <div id="condOtherWrap" hidden>
+                                        <label for="condOther">If Other, specify</label>
+                                        <input class="field" id="condOther" name="condOther" type="text"
+                                            placeholder="Type condition" />
+                                    </div>
+                                    <div></div>
+                                </div>
+
+                                <div class="fineprint" style="margin-top:6px;">
+                                    Tip: Selecting <b>No Pre-Existing Conditions</b> will clear the other selections.
+                                </div>
+                            </div>
+
+                            <div class="step" data-step="contact" hidden>
+                                <h3 class="stepTitle">Contact information</h3>
+                                <p class="stepHint">Enter your details to get your free quote.</p>
+
+                                <div class="row2">
+                                    <div>
+                                        <label for="firstName">First name</label>
+                                        <input class="field" id="firstName" name="firstName" type="text"
+                                            autocomplete="given-name" placeholder="First name" required />
+                                    </div>
+                                    <div>
+                                        <label for="lastName">Last name</label>
+                                        <input class="field" id="lastName" name="lastName" type="text"
+                                            autocomplete="family-name" placeholder="Last name" required />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="email">Email</label>
+                                    <input class="field" id="email" name="email" type="email" autocomplete="email"
+                                        placeholder="name@email.com" required />
+                                </div>
+
+                                <div class="row2">
+                                    <div>
+                                        <label for="phone">Phone</label>
+                                        <input class="field" id="phone" name="phone" type="tel" autocomplete="tel"
+                                            placeholder="+1 415 555 1212" required />
+                                        <div class="fineprint">country code + phone</div>
+                                    </div>
+                                    <div>
+                                        <label for="zip">ZIP code</label>
+                                        <input class="field" id="zip" name="zip" type="text" inputmode="numeric"
+                                            placeholder="ZIP" required />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="state">State</label>
+                                    <select class="field" id="state" name="state" required>
+                                        <option value="" selected disabled>Select your state</option>
+                                        <option>Alabama</option>
+                                        <option>Alaska</option>
+                                        <option>Arizona</option>
+                                        <option>Arkansas</option>
+                                        <option>California</option>
+                                        <option>Colorado</option>
+                                        <option>Connecticut</option>
+                                        <option>Delaware</option>
+                                        <option>Florida</option>
+                                        <option>Georgia</option>
+                                        <option>Hawaii</option>
+                                        <option>Idaho</option>
+                                        <option>Illinois</option>
+                                        <option>Indiana</option>
+                                        <option>Iowa</option>
+                                        <option>Kansas</option>
+                                        <option>Kentucky</option>
+                                        <option>Louisiana</option>
+                                        <option>Maine</option>
+                                        <option>Maryland</option>
+                                        <option>Massachusetts</option>
+                                        <option>Michigan</option>
+                                        <option>Minnesota</option>
+                                        <option>Mississippi</option>
+                                        <option>Missouri</option>
+                                        <option>Montana</option>
+                                        <option>Nebraska</option>
+                                        <option>Nevada</option>
+                                        <option>New Hampshire</option>
+                                        <option>New Jersey</option>
+                                        <option>New Mexico</option>
+                                        <option>New York</option>
+                                        <option>North Carolina</option>
+                                        <option>North Dakota</option>
+                                        <option>Ohio</option>
+                                        <option>Oklahoma</option>
+                                        <option>Oregon</option>
+                                        <option>Pennsylvania</option>
+                                        <option>Rhode Island</option>
+                                        <option>South Carolina</option>
+                                        <option>South Dakota</option>
+                                        <option>Tennessee</option>
+                                        <option>Texas</option>
+                                        <option>Utah</option>
+                                        <option>Vermont</option>
+                                        <option>Virginia</option>
+                                        <option>Washington</option>
+                                        <option>West Virginia</option>
+                                        <option>Wisconsin</option>
+                                        <option>Wyoming</option>
+                                    </select>
+                                </div>
+
+                                <div class="fineprint">
+                                    By continuing, you agree to be contacted by phone/text and email for quote
+                                    assistance. No fees. No
+                                    obligation.
+                                </div>
+                            </div>
+
+                            <div class="step" data-step="otp" hidden>
+                                <h3 class="stepTitle">Verify your code to continue</h3>
+                                <p class="stepHint" id="otpHint">
+                                    We’ve sent a one-time code to <b id="otpPhonePreview">your phone</b>. Enter it below
+                                    to confirm your
+                                    identity.
+                                </p>
+
+                                <div class="otpRow">
+                                    <input class="otpBox" inputmode="numeric" maxlength="1" aria-label="Digit 1" />
+                                    <input class="otpBox" inputmode="numeric" maxlength="1" aria-label="Digit 2" />
+                                    <input class="otpBox" inputmode="numeric" maxlength="1" aria-label="Digit 3" />
+                                    <input class="otpBox" inputmode="numeric" maxlength="1" aria-label="Digit 4" />
+                                    <input class="otpBox" inputmode="numeric" maxlength="1" aria-label="Digit 5" />
+                                    <input class="otpBox" inputmode="numeric" maxlength="1" aria-label="Digit 6" />
+                                </div>
+
+                                <div class="fineprint" id="otpError" role="alert" style="display:none;"></div>
+
+                                <div class="otpLinks">
+                                    <button class="btn btnGhost" type="button" id="updatePhoneBtn">Update Phone
+                                        Number</button>
+                                    <button class="btn btnGhost" type="button" id="resendOtpBtn">Resend Code</button>
+                                </div>
+
+                                <div class="fineprint" id="otpAttempts" aria-live="polite"></div>
+                                <div class="fineprint" id="otpDevNote"></div>
+                            </div>
+
+                            <div class="stepActions">
+                                <button class="btn btnGhost" type="button" id="backBtn">Back</button>
+                                <button class="btn btnPrimary" type="button" id="nextBtn">Continue</button>
+                            </div>
+
+                            <div class="fineprint" id="formStatus" role="status" aria-live="polite"></div>
+                        </form>
+                        <div id="thankYouCard" hidden>
+                            <h2>Phone Verified Successfully</h2>
+                            <p class="stepHint">
+                                Thanks for confirming your number. We’ve received your request and our team will contact
+                                you anytime about it.
+                            </p>
+
+                            <div class="quoteStrip" style="margin-top:14px;">
+                                <b>What happens next</b>
+                                <span>
+                                    One of our licensed agents will follow up via call, text, or email to help you with
+                                    the best coverage
+                                    options.
+                                </span>
+                            </div>
+
+                            <div class="fineprint" style="margin-top:14px;">
+                                If you do not hear back soon, double-check that your phone number and email are correct.
+                            </div>
+
+                            <div class="stepActions" style="margin-top:14px;">
+                                <a class="btn btnPrimary" href="#top">Back to top</a>
+                                <a class="btn btnGhost" href="index.html">Return to home</a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="alt" id="result" hidden>
+            <div class="container">
+                <div class="sectionHead">
+                    <div>
+                        <h3>Thank you!</h3>
+                        <p>For reaching out and taking the first step. Here’s what happens next.</p>
+                    </div>
+                </div>
+
+                <div class="grid3">
+                    <div class="miniCard">
+                        <div class="miniTop">
+                            <span class="miniIcon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M4 7h16"></path>
+                                    <path d="M4 12h16"></path>
+                                    <path d="M4 17h16"></path>
+                                    <path d="M7 7v10"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h4>Step I</h4>
+                            </div>
+                        </div>
+                        <p>We connect you with a state-specific agent with experience across multiple carriers.</p>
+                        <p><b>No broker or application fees.</b></p>
+                    </div>
+
+                    <div class="miniCard">
+                        <div class="miniTop">
+                            <span class="miniIcon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M21 14c0 1.7-1.3 3-3 3H9l-4 4v-4H6c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h12c1.7 0 3 1.3 3 3v7z">
+                                    </path>
+                                    <path d="M7 9h10"></path>
+                                    <path d="M7 12h7"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h4>Step II</h4>
+                            </div>
+                        </div>
+                        <p>Expect a call from an unknown number. If you’re busy, the agent can text so you can reply
+                            when ready.</p>
+                    </div>
+
+                    <div class="miniCard">
+                        <div class="miniTop">
+                            <span class="miniIcon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M3 4h18v12H3z"></path>
+                                    <path d="M7 20h10"></path>
+                                    <path d="M9 16v4"></path>
+                                    <path d="M15 16v4"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h4>Step III</h4>
+                            </div>
+                        </div>
+                        <p>The agent can screen-share while comparing carriers to find the best fit for you and your
+                            family.</p>
+                        <p><b>No obligation. No fees.</b></p>
+                    </div>
+                </div>
+
+                <div style="height:14px;"></div>
+
+                <div class="quoteStrip">
+                    <b>No fees. No hassle. Just better insurance.</b>
+                    <span>We’ll match you with options that fit your needs.</span>
+                </div>
+            </div>
+        </section>
+
+        
+        <footer>
+            <div class="container">
+                <div class="footerGrid">
+                    <div>
+                        <div class="brand" style="margin-bottom: 8px;">
+                            <img class="logoImg logoDark"
+                                src="https://assets.cdn.filesafe.space/7PUQJ51iK1NGACL0C7PL/media/6998acee3a2afdd874628a8e.png"
+                                alt="ProtectYours Logo" />
+                            <img class="logoImg logoLight"
+                                src="https://assets.cdn.filesafe.space/7PUQJ51iK1NGACL0C7PL/media/6998acee08245eb5330ca41b.png"
+                                alt="ProtectYours Logo" />
+                        </div>
+                        <p>Premium health and life insurance guidance designed to protect your present and strengthen
+                            your future.</p>
+                    </div>
+
+                    <div>
+                        <h5>Explore</h5>
+                        <p><a href="/home-page/">Home</a></p>
+                        <p><a href="#services">Services</a></p>
+                        <p><a href="#coverage">Coverage</a></p>
+                        <p><a href="#how">How It Works</a></p>
+                        <p><a href="#contact">Get a Quote</a></p>
+                        <p><a href="about.html">About Us</a></p>
+                    </div>
+
+                    <div>
+                        <h5>Contact</h5>
+                        <p>Phone: (813) 123-4567</p>
+                        <p>Email: support@protectyours.com</p>
+                        <p>Office: Tampa, FL</p>
+                    </div>
+                </div>
+
+                <div class="footNote">
+                    © <span id="year"></span> ProtectYours. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var toggle = document.getElementById("themeToggle");
+            var year = document.getElementById("year");
+            if (year) year.textContent = String(new Date().getFullYear());
+
+            function setTheme(theme) {
+                root.setAttribute("data-theme", theme);
+                try { localStorage.setItem("py_theme", theme); } catch (e) { }
+            }
+
+            var saved = null;
+            try { saved = localStorage.getItem("py_theme"); } catch (e) { }
+            if (saved === "light" || saved === "dark") setTheme(saved);
+
+            if (toggle) {
+                toggle.addEventListener("click", function () {
+                    var nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+                    setTheme(nextTheme);
+                });
+            }
+
+            var form = document.getElementById("otpForm");
+            if (!form) return;
+
+            var steps = [
+                { key: "goal", label: "Goal" },
+                { key: "beneficiaries", label: "Beneficiaries" },
+                { key: "budget", label: "Budget" },
+                { key: "dob", label: "DOB" },
+                { key: "conditions", label: "Conditions" },
+                { key: "contact", label: "Contact" },
+                { key: "otp", label: "Verify" }
+            ];
+
+            var current = 0;
+            var data = {};
+            var attemptsLeft = 5;
+            var busy = false;
+
+            var stepNum = document.getElementById("stepNum");
+            var stepTotal = document.getElementById("stepTotal");
+            var stepLabel = document.getElementById("stepLabel");
+            var stepPct = document.getElementById("stepPct");
+            var dotsWrap = document.getElementById("stepDots");
+            var status = document.getElementById("formStatus");
+            var backBtn = document.getElementById("backBtn");
+            var nextBtn = document.getElementById("nextBtn");
+
+            var budget = document.getElementById("budget");
+            var budgetValue = document.getElementById("budgetValue");
+
+            var otpBoxes = Array.prototype.slice.call(document.querySelectorAll(".otpBox"));
+            var otpError = document.getElementById("otpError");
+            var otpAttempts = document.getElementById("otpAttempts");
+            var otpPhonePreview = document.getElementById("otpPhonePreview");
+            var otpDevNote = document.getElementById("otpDevNote");
+            var resendOtpBtn = document.getElementById("resendOtpBtn");
+            var updatePhoneBtn = document.getElementById("updatePhoneBtn");
+
+            var benefOtherWrap = document.getElementById("benefOtherWrap");
+            var condOtherWrap = document.getElementById("condOtherWrap");
+
+            var resultSection = document.getElementById("result");
+
+            if (stepTotal) stepTotal.textContent = String(steps.length);
+
+            function setBusy(isBusy, label) {
+                busy = !!isBusy;
+                if (!nextBtn) return;
+                nextBtn.disabled = busy;
+                if (busy) nextBtn.textContent = label || "Working...";
+                else nextBtn.textContent = current === steps.length - 1 ? "Verify code" : "Continue";
+            }
+
+            function renderDots() {
+                if (!dotsWrap) return;
+                dotsWrap.innerHTML = "";
+                for (var i = 0; i < steps.length; i++) {
+                    var d = document.createElement("div");
+                    d.className = "stepDot" + (i === current ? " isActive" : (i < current ? " isDone" : ""));
+                    dotsWrap.appendChild(d);
+                }
+            }
+
+            function prettyPhone(v) {
+                return String(v || "your phone");
+            }
+
+            function normalizeToE164(raw) {
+                var s = String(raw || "").trim();
+                if (!s) return "";
+
+                if (s.startsWith("+")) {
+                    var digits = s.replace(/[^\d+]/g, "");      // keep + and digits
+                    digits = "+" + digits.replace(/\D/g, "");   // ensure single leading +
+                    return digits.length >= 9 ? digits : "";    // basic length sanity
+                }
+
+                var onlyDigits = s.replace(/\D/g, "");
+
+                if (onlyDigits.startsWith("09") && onlyDigits.length === 11) {
+                    return "+63" + onlyDigits.substring(1);
+                }
+
+                if (onlyDigits.startsWith("9") && onlyDigits.length === 10) {
+                    return "+63" + onlyDigits;
+                }
+
+                return "";
+            }
+            function isValidPhone(raw) {
+                return !!normalizeToE164(raw);
+            }
+
+            async function sendOtpViaWP() {
+                var phoneRaw = data.phone || (document.getElementById("phone") && document.getElementById("phone").value) || "";
+                var phone = normalizeToE164(phoneRaw);
+
+                if (!phone) throw new Error("Enter a valid phone number using + country code (example: +1..., +63...).");
+
+                var res = await fetch("/wp-json/otp/v1/send", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ phone: phone })
+                });
+
+                var json = await res.json().catch(function () { return {}; });
+                if (!res.ok || !json || !json.ok) {
+                    throw new Error((json && json.message) || "Error sending OTP");
+                }
+                return true;
+            }
+
+            async function verifyOtpViaWP(code) {
+                var phoneRaw = data.phone || (document.getElementById("phone") && document.getElementById("phone").value) || "";
+                var phone = normalizeToE164(phoneRaw);
+
+                if (!phone) throw new Error("Enter a valid phone number using + country code (example: +1..., +63...).");
+
+                var res = await fetch("/wp-json/otp/v1/check", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ phone: phone, code: code })
+                });
+
+                var json = await res.json().catch(function () { return {}; });
+                if (!res.ok) throw new Error((json && json.message) || "Verification failed");
+                return !!(json && json.ok);
+            }
+
+            function showStep(idx) {
+                current = Math.max(0, Math.min(idx, steps.length - 1));
+                var key = steps[current].key;
+
+                Array.prototype.forEach.call(document.querySelectorAll(".step"), function (el) {
+                    el.hidden = el.getAttribute("data-step") !== key;
+                });
+
+                if (stepNum) stepNum.textContent = String(current + 1);
+                if (stepLabel) stepLabel.textContent = steps[current].label;
+                if (stepPct) stepPct.textContent = Math.round(((current + 1) / steps.length) * 100) + "%";
+                renderDots();
+
+                if (backBtn) backBtn.style.display = current === 0 ? "none" : "inline-flex";
+                if (nextBtn) nextBtn.textContent = current === steps.length - 1 ? "Verify code" : "Continue";
+
+                if (status) status.textContent = "";
+
+                if (key === "otp") {
+                    otpBoxes.forEach(function (b) { b.value = ""; });
+                    if (otpBoxes[0]) otpBoxes[0].focus();
+
+                    if (otpError) otpError.style.display = "none";
+                    attemptsLeft = 5;
+                    updateOtpAttempts();
+
+                    if (otpPhonePreview) otpPhonePreview.textContent = prettyPhone(data.phone || "");
+
+                    (async function () {
+                        try {
+                            setBusy(true, "Sending code...");
+                            await sendOtpViaWP();
+                            setBusy(false);
+                            if (otpDevNote) otpDevNote.textContent = ""; // no demo code
+                        } catch (e) {
+                            setBusy(false);
+                            setError(e && e.message ? e.message : "Failed to send code.");
+                        }
+                    })();
+                }
+            }
+
+            function getCheckedValues(name) {
+                return Array.prototype.slice.call(form.querySelectorAll('input[name="' + name + '"]:checked'))
+                    .map(function (x) { return x.value; });
+            }
+
+            function mustHaveAtLeastOne(name) {
+                return getCheckedValues(name).length > 0;
+            }
+
+            function isValidEmail(v) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim());
+            }
+
+            function isValidZip(v) {
+                var d = String(v || "").trim();
+                return /^\d{5}(-\d{4})?$/.test(d);
+            }
+
+            function validateCurrent() {
+                var key = steps[current].key;
+
+                if (key === "goal") {
+                    if (!mustHaveAtLeastOne("goal")) return "Select at least one goal.";
+                    data.goal = getCheckedValues("goal");
+                }
+
+                if (key === "beneficiaries") {
+                    if (!mustHaveAtLeastOne("beneficiaries")) return "Select at least one beneficiary option.";
+                    data.beneficiaries = getCheckedValues("beneficiaries");
+                    data.benefOther = (document.getElementById("benefOther").value || "").trim();
+                    if (data.beneficiaries.indexOf("Other") !== -1 && !data.benefOther) return "Type the beneficiary under Other.";
+                }
+
+                if (key === "budget") {
+                    data.budget = Number((budget && budget.value) || 0);
+                }
+
+                if (key === "dob") {
+                    var m = document.getElementById("dobMonth").value;
+                    var d = document.getElementById("dobDay").value;
+                    var y = document.getElementById("dobYear").value;
+                    if (!m || !d || !y) return "Fill out month, day, and year.";
+                    var day = Number(d), yearNum = Number(y), month = Number(m);
+                    if (!(day >= 1 && day <= 31)) return "Day must be between 1 and 31.";
+                    if (!(yearNum >= 1900 && yearNum <= new Date().getFullYear())) return "Enter a valid birth year.";
+                    data.dob = { month: month, day: day, year: yearNum };
+                }
+
+                if (key === "conditions") {
+                    if (!mustHaveAtLeastOne("conditions")) return "Select at least one option.";
+                    var cond = getCheckedValues("conditions");
+                    if (cond.indexOf("No Pre-Existing Conditions") !== -1 && cond.length > 1) {
+                        cond = ["No Pre-Existing Conditions"];
+                        Array.prototype.forEach.call(form.querySelectorAll('input[name="conditions"]'), function (x) {
+                            x.checked = x.value === "No Pre-Existing Conditions";
+                        });
+                    }
+                    data.conditions = cond;
+                    data.condOther = (document.getElementById("condOther").value || "").trim();
+                    if (data.conditions.indexOf("Other") !== -1 && !data.condOther) return "Type the condition under Other.";
+                }
+
+                if (key === "contact") {
+                    var first = (document.getElementById("firstName").value || "").trim();
+                    var last = (document.getElementById("lastName").value || "").trim();
+                    var email = (document.getElementById("email").value || "").trim();
+                    var phone = (document.getElementById("phone").value || "").trim();
+                    var zip = (document.getElementById("zip").value || "").trim();
+                    var state = (document.getElementById("state").value || "").trim();
+
+                    if (!first) return "Enter your first name.";
+                    if (!last) return "Enter your last name.";
+                    if (!isValidEmail(email)) return "Enter a valid email address.";
+                    if (!isValidPhone(phone)) return "Enter a valid phone number (PH).";
+                    if (!isValidZip(zip)) return "Enter a valid ZIP code.";
+                    if (!state) return "Select your state.";
+
+                    data.firstName = first;
+                    data.lastName = last;
+                    data.email = email;
+                    data.phone = phone;
+                    data.zip = zip;
+                    data.state = state;
+                }
+
+                if (key === "otp") {
+                    var entered = otpBoxes.map(function (b) { return (b.value || "").trim(); }).join("");
+                    if (entered.length !== otpBoxes.length) return "Enter the full code.";
+                }
+
+                return null;
+            }
+
+            function updateOtpAttempts() {
+                if (!otpAttempts || !nextBtn) return;
+
+                if (attemptsLeft <= 0) {
+                    otpAttempts.innerHTML = '<span class="errorText"><b>You have reached the maximum attempts.</b > Request a new code or contact support.</span > ';
+                    nextBtn.disabled = true;
+                    return;
+                }
+                otpAttempts.textContent = "You have " + attemptsLeft + " attempts remaining.";
+                nextBtn.disabled = false;
+            }
+
+            function setError(msg) {
+                if (!status) return;
+                status.textContent = msg || "";
+                if (status.textContent) status.classList.add("errorText");
+                else status.classList.remove("errorText");
+            }
+
+            async function next() {
+                if (busy) return;
+
+                setError("");
+                if (otpError) otpError.style.display = "none";
+
+                var err = validateCurrent();
+                if (err) {
+                    setError(err);
+                    if (steps[current].key === "otp" && otpError) {
+                        otpError.style.display = "block";
+                        otpError.textContent = err;
+                        otpError.classList.add("errorText");
+                    }
+                    return;
+                }
+
+                if (steps[current].key === "otp") {
+                    var entered = otpBoxes.map(function (b) { return (b.value || "").trim(); }).join("");
+
+                    try {
+                        setBusy(true, "Verifying...");
+                        var ok = await verifyOtpViaWP(entered);
+                        setBusy(false);
+
+                        if (!ok) {
+                            attemptsLeft -= 1;
+                            updateOtpAttempts();
+
+                            var msg = "Oops! That code doesn't match. Try again.";
+                            setError(msg);
+                            if (otpError) {
+                                otpError.style.display = "block";
+                                otpError.textContent = msg;
+                                otpError.classList.add("errorText");
+                            }
+                            return;
+                        }
+
+                        var otpFormEl = document.getElementById("otpForm");
+                        var thankYouCard = document.getElementById("thankYouCard");
+                        var subhead = document.getElementById("subhead"); // optional: "Step 1 of 7"
+                        var stepper = document.querySelector(".stepper"); // optional: progress bar
+
+                        if (otpFormEl) otpFormEl.hidden = true;          // hides OTP fields + buttons + all steps
+                        if (subhead) subhead.hidden = true;              // optional: hide "Step x of y"
+                        if (stepper) stepper.hidden = true;              // optional: hide dots/progress
+
+                        if (thankYouCard) thankYouCard.hidden = false;
+
+                        setError("");
+                        return;
+
+                    } catch (e2) {
+                        setBusy(false);
+                        setError(e2 && e2.message ? e2.message : "Verification failed.");
+                        if (otpError) {
+                            otpError.style.display = "block";
+                            otpError.textContent = e2 && e2.message ? e2.message : "Verification failed.";
+                            otpError.classList.add("errorText");
+                        }
+                        return;
+                    }
+                }
+
+                showStep(current + 1);
+            }
+
+            function back() {
+                setError("");
+                if (current === 0) return;
+                showStep(current - 1);
+            }
+
+            if (budget && budgetValue) {
+                function renderBudget() {
+                    budgetValue.textContent = "$" + Number(budget.value || 0).toLocaleString();
+                }
+                budget.addEventListener("input", renderBudget);
+                renderBudget();
+            }
+
+            form.addEventListener("change", function (e) {
+                if (e.target && e.target.name === "beneficiaries") {
+                    var vals = getCheckedValues("beneficiaries");
+                    if (benefOtherWrap) benefOtherWrap.hidden = vals.indexOf("Other") === -1;
+                }
+                if (e.target && e.target.name === "conditions") {
+                    var vals2 = getCheckedValues("conditions");
+                    if (e.target.value === "No Pre-Existing Conditions" && e.target.checked) {
+                        Array.prototype.forEach.call(form.querySelectorAll('input[name="conditions"]'), function (x) {
+                            x.checked = x.value === "No Pre-Existing Conditions";
+                        });
+                        vals2 = ["No Pre-Existing Conditions"];
+                    }
+                    if (condOtherWrap) condOtherWrap.hidden = vals2.indexOf("Other") === -1;
+                }
+            });
+
+            otpBoxes.forEach(function (box, i) {
+                box.addEventListener("input", function () {
+                    box.value = box.value.replace(/\D/g, "").slice(0, 1);
+                    if (box.value && otpBoxes[i + 1]) otpBoxes[i + 1].focus();
+                });
+                box.addEventListener("keydown", function (ev) {
+                    if (ev.key === "Backspace" && !box.value && otpBoxes[i - 1]) otpBoxes[i - 1].focus();
+                    if (ev.key === "Enter") { ev.preventDefault(); next(); }
+                });
+            });
+
+            if (resendOtpBtn) {
+                resendOtpBtn.addEventListener("click", async function () {
+                    if (busy) return;
+
+                    try {
+                        attemptsLeft = 5;
+                        updateOtpAttempts();
+                        otpBoxes.forEach(function (b) { b.value = ""; });
+                        if (otpBoxes[0]) otpBoxes[0].focus();
+
+                        setBusy(true, "Resending...");
+                        await sendOtpViaWP();
+                        setBusy(false);
+                        setError("Code resent.");
+                        if (otpDevNote) otpDevNote.textContent = "";
+                    } catch (e) {
+                        setBusy(false);
+                        setError(e && e.message ? e.message : "Failed to resend code.");
+                    }
+                });
+            }
+
+            if (updatePhoneBtn) {
+                updatePhoneBtn.addEventListener("click", function () {
+                    var idx = steps.findIndex(function (s) { return s.key === "contact"; });
+                    showStep(idx >= 0 ? idx : 0);
+                });
+            }
+
+            if (backBtn) backBtn.addEventListener("click", back);
+            if (nextBtn) nextBtn.addEventListener("click", function () { next(); });
+
+            form.addEventListener("submit", function (e) { e.preventDefault(); });
+
+            renderDots();
+            showStep(0);
+        })();
+    </script>
+</body>
+
+</html>

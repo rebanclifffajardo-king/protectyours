@@ -1,0 +1,9 @@
+{
+  "name": "protectyours-node-project",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node project serving the uploaded ProtectYours HTML pages.",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
